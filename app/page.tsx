@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className=''>
+      <div className=''>
         <AspectRatio ratio={16 / 9}>
         
         <Image
@@ -41,7 +41,7 @@ export default function Home() {
         />
        
         </AspectRatio>
-        </div> */}
+        </div>
 
       <div className={styles.grid}>
         <a
