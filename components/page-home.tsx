@@ -24,15 +24,6 @@ console.log(ref)
         className="rounded-md object-cover bg-slate-800"
       />
     </AspectRatio>
-    <div className=" animate-in slide-in-from-bottom-9 delay-150 text-center">
-        <h1 ref={ref} className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
-      Polished UI
-    </h1>
-    <p className="leading-7 mt-10">
-      The king, seeing how much happier his subjects were, realized the error of
-      his ways and repealed the joke tax.
-    </p>
-    </div>
         </div>
 
         </>
