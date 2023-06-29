@@ -1,7 +1,7 @@
 'use client'
 import * as React from "react";
 import { cva } from "class-variance-authority";
-import "./Button.css";
+import '@/styles/button.css'
 
 const button = cva("button", {
   variants: { isBusy: { true: "is-busy" } },
@@ -10,7 +10,7 @@ const button = cva("button", {
   },
 });
 
-export const Button = () => {
+export const ButtonUi = () => {
   const [isBusy, setIsBusy] = React.useState(false);
   const [aspectRatio, setAspectRatio] = React.useState(2);
 

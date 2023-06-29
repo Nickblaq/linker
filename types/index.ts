@@ -1,3 +1,5 @@
+import { Icons } from "@/components/icons";
+
 export interface SimpleLinkProps {
     domain?: string;
     key: string;
@@ -88,3 +90,46 @@ export interface SimpleLinkProps {
     type: "redirect" | "rewrite";
   }
   
+
+
+  export type NavItem = {
+    title: string
+    href: string
+    description?: string
+    disabled?: boolean
+  }
+  
+  export type MainNavItem = NavItem
+
+  export type SiteConfig = {
+    name: string
+    description: string
+    url: string
+    ogImage: string
+    links: {
+      twitter: string
+      github: string
+    }
+  }
+
+  export type SidebarNavItem = {
+    title: string
+    disabled?: boolean
+    external?: boolean
+    icon?: keyof typeof Icons
+  } & (
+    | {
+        href: string
+        items?: never
+      }
+    | {
+        href?: string
+        items: NavItem[]
+      }
+  )
+  
+
+  export type DoubleNav = {
+    mainNav: MainNavItem[]
+    sidebarNav: SidebarNavItem[]
+  }

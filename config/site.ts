@@ -1,9 +1,9 @@
 export const siteConfig = {
-    name: "Kowaa",
+    name: "Craft",
     url: "localhost:3000",
     ogImage: "http://localhost:3000/og.png",
     description:
-      "Kowaa is an AI Copywriter is a website that allows you to boost your writing skills.",
+      "Kowaa is a project meant to represent my work to future employee",
     links: {
       twitter: "https://twitter.com/",
       github: "https://github.com/kowaa",
