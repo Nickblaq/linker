@@ -1,0 +1,145 @@
+@keyframes disco {
+    from {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+  
+  .disco_vars {
+    /* Customizable */
+    --color-bg: rgb(24 24 27);
+    --color-border: rgb(63 63 70);
+    --color-disco: rgb(59 130 246);
+    --color-text: rgb(161 161 170);
+    --color-text-busy: rgb(113 113 122);
+    --border-width: 1px;
+    --bg-gradient-start: rgb(24 24 27);
+    --bg-gradient-end: rgb(39 39 42);
+    --disco-animation: disco 1.5s linear infinite;
+    --disco-gradient-stops: transparent 135deg,
+      var(--color-disco) 180deg, transparent 225deg;
+    --disco-opacity: 1;
+    --radius: 0.5rem;
+    --transition-duration: 200ms;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: var(--transition-duration)
+      var(--transition-easing);
+    /**
+     * Using an advance mathematic technique often referred to as
+     * "winging it", we'll offset the aspect ratio by a figure
+     * that brings the shape of the "disco" element as close to
+     * the edge of the button as possible – to reduce the effect
+     * of "easing".
+     */
+    --aspect-ratio-multiplier: 0.65;
+    /* Styles */
+    appearance: none;
+    position: relative;
+    border: 0;
+    font: inherit;
+    width: max-content;
+    overflow: hidden;
+    margin: calc(var(--border-width) * -1);
+    padding: var(--border-width);
+    color: var(--color-text);
+    border-radius: var(--radius);
+    transform: none;
+    user-select: none;
+    will-change: transform;
+    background-color: var(--color-border);
+    /**
+     * This one's optional, it just stops the button from jumping around when the
+     * content width changes
+     */
+    min-width: 8rem;
+  }
+  
+  .disco_vars:hover {
+    filter: brightness(0.95);
+  }
+  .disco_vars:active {
+    transform: scale(0.95);
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .disco_vars {
+      transition: var(--transition);
+      transition-property: color, filter, transform;
+    }
+  }
+  
+  .disco_vars__content {
+    display: inline-flex;
+    position: relative;
+    border-radius: calc(var(--radius) - var(--border-width));
+    background-image: linear-gradient(
+      to top right,
+      var(--bg-gradient-start),
+      var(--bg-gradient-end)
+    );
+    background-color: var(--bg-gradient-end);
+    width: 100%;
+    justify-content: center;
+    padding: 0.625rem 1rem;
+    text-align: center;
+    z-index: 10;
+  }
+  
+  .disco_vars__disco,
+  .disco_vars__disco::before {
+    position: absolute;
+    width: 100%;
+  }
+  
+  .disco_vars__disco {
+    inset: 0;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%)
+      scaleX(
+        calc(var(--aspect-ratio) * var(--aspect-ratio-multiplier))
+      );
+    will-change: transform;
+  }
+  
+  .disco_vars__disco::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    min-height: 100%;
+    top: 50%;
+    aspect-ratio: 1/1;
+    transform-origin: center;
+    background-image: conic-gradient(var(--disco-gradient-stops));
+    opacity: var(--disco-opacity-enabled, 0);
+    /**
+     * This one's not strictly necessary, but I think it helps soften the gradient
+     * and reduces animation "easing".
+     */
+    filter: blur(8px);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .disco_vars__disco::before {
+      transform: translateY(-50%) rotate(0deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .disco_vars__disco::before {
+      animation: var(--disco-animation);
+      animation-play-state: var(--disco-animation-state, paused);
+      transition: var(--transition);
+      transition-property: opacity;
+    }
+  }
+  
+  .disco_vars.is-busy {
+    --color-text: var(--color-text-busy);
+    --disco-animation-state: running;
+    --disco-opacity-enabled: var(--disco-opacity);
+    cursor: progress;
+  }
+  
