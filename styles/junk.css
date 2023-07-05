@@ -1,0 +1,53 @@
+/* background-image: linear-gradient(
+      to right,
+      var(--color-grid) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px); */
+    /* background-size: 2rem 2rem; */
+    /* background-position: 0 0; */
+    /* background-origin: border-box; */
+  /* className={${inter.className}  bg-no-repeat} */
+
+  /* @keyframes disco {
+    from {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateY(-50%) rotate(360deg);
+    }
+  }
+  
+  .disco {
+    --disco-color: rgb(59, 130, 246);
+    --disco-animation: disco 1.5s linear infinite;
+    --disco-opacity: 1;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .disco::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(--disco-color);
+    opacity: var(--disco-opacity);
+    animation: var(--disco-animation);
+  } */
+
+  /* --color-background: rgb(24 24 27);
+  --color-grid: rgba(39, 39, 42, 0.25);
+  --color-link: rgb(212 212 216);
+  --color-link-text-decoration: rgb(161 161 170);
+  --color-text: rgb(255 255 255);
+  --color-transparent: rgba(0 0 0 0);
+  --ring-rgb: 168 162 158;
+  --radius: 0.5rem;
+  --ring-rgb: 0 1 0; */
+  
