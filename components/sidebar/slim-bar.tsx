@@ -22,6 +22,7 @@ import {
      HamburgerMenuIcon,
      MoonIcon,
        } from '@radix-ui/react-icons'
+       
 export default function SlimBar () {
   const [open, close] = React.useState(false)
   const path = usePathname()
@@ -34,7 +35,7 @@ export default function SlimBar () {
     <TooltipProvider>
     <div 
     className={cn(
-      'relative min-h-full z-50 flex items-center flex-col justify-between gap-8 h-screen w-[60px] py-16 border-r border-gray-200 px-8',
+      'relative min-h-full z-50 hidden md:flex items-center flex-col justify-between gap-8 h-[calc(100vh-64px)] w-[60px] py-16 border-r border-gray-200 px-8',
     )}>
   
       {/* <div>

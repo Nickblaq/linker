@@ -9,20 +9,89 @@ import { Icons } from "./icons"
 import { MainNavItem } from "@/types"
 import { useSelectedLayoutSegment } from "next/navigation"
 import { NavigationMenuLink } from "./ui/navigation-menu"
-import { MaskOnIcon } from "@radix-ui/react-icons"
+import { HamburgerMenuIcon, MaskOnIcon } from "@radix-ui/react-icons"
 import { Transition } from "@headlessui/react"
-
+import { TextAlignLeftIcon } from '@radix-ui/react-icons'
+import { Button } from '@/components/ui/button'
+import { Cross1Icon } from "@radix-ui/react-icons"
 interface NavProps {
     items: MainNavItem[]
     children?: React.ReactNode
 }
 
- function MobileNav({ items, children}: NavProps) {
+
+
+export function MainNav({ items, children }: NavProps) {
+  const segment = useSelectedLayoutSegment()
+  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
+
+  return (
+    <div className="flex items-center justify-between border-b border-gray-200  gap-6 md:gap-10 h-16 px-4">
+      <Link href="/" className="items-center space-x-2 md:flex">
+        <p className=" font-black text-2xl font-serif sm:inline-block">
+          {siteConfig.name}
+        </p>
+      </Link>
+      
+      {items?.length ? (
+        <nav className="hidden gap-6 md:flex">
+          {items?.map((item, index) => (
+            <Link
+              key={index}
+              href={item.disabled ? "#" : item.href}
+              className={cn(
+                "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
+                item.href.startsWith(`/${segment}`)
+                  ? "text-foreground"
+                  : "text-foreground/60",
+                item.disabled && "cursor-not-allowed opacity-80"
+              )}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
+
+        {showMobileMenu ? 
+          <>
+          <Button
+          size='icon'
+           onClick={() => setShowMobileMenu(!showMobileMenu)}
+           className='rounded-[50%] bg-[#333]   text-[#eee] relative flex items-center justify-center  border border-gray-200' variant="outline">
+        <Cross1Icon className="h-6 w-6 flex items-center justify-center" />
+      </Button>
+        </>
+        :  
+      
+        <>
+         <Button
+           onClick={() => setShowMobileMenu(!showMobileMenu)}
+           className='rounded-[50%] bg-[#333]   text-[#eee] relative flex items-center justify-center  border border-gray-200' variant="outline" size="icon">
+        <HamburgerMenuIcon className="h-6 w-6 flex items-center justify-center" />
+      </Button>
+          {/* <Button 
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          className='rounded-[50% ] h-full w-full bg-[#333 text-[#eee] flex items-center justify-center  border border-gray-200' variant="outline" size="icon">
+        <TextAlignLeftIcon className="flex items-center justify-center" />
+      </Button> */}
+      </>
+      
+        }
+      {showMobileMenu && items && (
+        <MobileNav items={items}>{children}</MobileNav>
+      )}
+    </div>
+  )
+}
+
+
+ export function MobileNav({ items, children}: NavProps) {
     useLockBody()
 
     return (
       <div
-      className="fixed inset-0  top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md md:hidden animate-in slide-in-from-bottom-96"
+      className="fixed inset-0  top-16 z-30 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md md:hidden animate-in slide-in-from-bottom-96"
       >
       
       <div className="relative h-full z-20 rounded-md bg-popover p-4 text-popover-foreground backdrop-blur-md border-stone-950 border-2">
@@ -116,46 +185,3 @@ ListItem.displayName = "ListItem"
 
 
 
-export function MainNav({ items, children }: NavProps) {
-  const segment = useSelectedLayoutSegment()
-  const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
-
-  return (
-    <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="hidden items-center space-x-2 md:flex">
-        <p className="hidden font-bold sm:inline-block">
-          {siteConfig.name}
-        </p>
-      </Link>
-      {items?.length ? (
-        <nav className="hidden gap-6 md:flex">
-          {items?.map((item, index) => (
-            <Link
-              key={index}
-              href={item.disabled ? "#" : item.href}
-              className={cn(
-                "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                item.href.startsWith(`/${segment}`)
-                  ? "text-foreground"
-                  : "text-foreground/60",
-                item.disabled && "cursor-not-allowed opacity-80"
-              )}
-            >
-              {item.title}
-            </Link>
-          ))}
-        </nav>
-      ) : null}
-      <button
-        className="flex items-center space-x-2 md:hidden"
-        onClick={() => setShowMobileMenu(!showMobileMenu)}
-      >
-        {showMobileMenu ? <Icons.x /> :  <span className="font-bold text-2xl">Tofo</span>}
-       
-      </button>
-      {showMobileMenu && items && (
-        <MobileNav items={items}>{children}</MobileNav>
-      )}
-    </div>
-  )
-}
