@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/providers'
 import Navbar from '@/components/navbar/navbar'
 import { Metadata } from "next"
 const inter = Inter({ subsets: ['latin'] })
+import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: {
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
     template: `%s - Linker`,
   },
   description: 'Description',
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+  // themeColor: [
+  //   { media: "(prefers-color-scheme: light)", color: "white" },
+  //   { media: "(prefers-color-scheme: dark)", color: "black" },
+  // ],
   // icons: {
   //   icon: "/favicon.ico",
   //   shortcut: "/favicon-16x16.png",
@@ -26,11 +27,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
+      <body className={cn(
+        'bg-gradient-to-b dark:from-[#222]/50 dark:to-[#222]  from-[#333]/50 to-[#333]',
+        inter.className
+      )}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       {/* <Navbar /> */}
         {children}
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
         </body>
     </html>
   )

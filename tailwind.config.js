@@ -62,6 +62,16 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "modalListNav-pop": {
+          '0%, 100%': {
+            opacity: 0,
+            transform: 'translateY(20px)',
+          },
+          '50%': {
+            opacity: 1,
+            transform:  'translateY(0)',
+          },
+        },
         "accordion-down": {
           from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -74,6 +84,7 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "modalListNav-pop": "modalListNavPop 0.9s ease-in-out",
       },
     },
   },

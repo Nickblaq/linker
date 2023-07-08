@@ -31,7 +31,7 @@ body {
 
 body {
   color: var(--grey1);
-  background-color: var(--backgroundColor);
+  /* background-color: var(--backgroundColor); */
 }
 
 a {

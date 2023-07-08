@@ -1,6 +1,9 @@
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { Cross1Icon, HamburgerMenuIcon, SunIcon, MoonIcon, LaptopIcon } from "@radix-ui/react-icons";
 
 export const Icons = {
     x: Cross1Icon,
-    hamburger: HamburgerMenuIcon
+    hamburger: HamburgerMenuIcon,
+    sun: SunIcon,
+    moon: MoonIcon,
+    laptop: LaptopIcon
 }

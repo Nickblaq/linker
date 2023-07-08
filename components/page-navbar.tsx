@@ -15,7 +15,7 @@ import { TextAlignLeftIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import { Cross1Icon } from "@radix-ui/react-icons"
 interface NavProps {
-    items: MainNavItem[]
+    items?: MainNavItem[]
     children?: React.ReactNode
 }
 

@@ -1,16 +1,8 @@
 'use client'
 import * as React from 'react'
-import styles from './mobile-bar.module.css'
-import {
-    Sheet,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-  } from "@/components/ui/sheet"
-  import { TextAlignLeftIcon } from '@radix-ui/react-icons'
-  import { Button } from '../ui/button'
+
+import { TextAlignLeftIcon } from '@radix-ui/react-icons'
+import { Button } from '../ui/button'
 import { MainNavItem } from '@/types'
 import { MobileNav } from '../page-navbar'
 import { useSelectedLayoutSegment } from 'next/navigation'
@@ -18,7 +10,7 @@ import { useSelectedLayoutSegment } from 'next/navigation'
     items: MainNavItem[]
 }
 
-export default function MobileBar ({ items }: NavProps) {
+export default function ButtonNav ({ items }: NavProps) {
   const segment = useSelectedLayoutSegment()
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
     return (
