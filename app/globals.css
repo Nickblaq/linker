@@ -39,6 +39,48 @@ a {
   text-decoration: none;
 }
 
+
+
+/* const gray = {
+  gray1: '#fcfcfc',
+  gray2: '#f8f8f8',
+  gray3: '#f3f3f3',
+  gray4: '#ededed',
+  gray5: '#e8e8e8',
+  gray6: '#e2e2e2',
+  gray7: '#dbdbdb',
+  gray8: '#c7c7c7',
+  gray9: '#8f8f8f',
+  gray10: '#858585',
+  gray11: '#6f6f6f',
+  gray12: '#171717',
+} */
+/* 
+--backgroundColor: #fff;
+--inputBackgroundColor: #f2f2f2;
+--primaryBorderColor: #e5e5e5;
+--secondaryBorderColor: #f2f2f2;
+--backdrop: rgba(0,0,0,.3);
+--transparentBorder: rgba(0,0,0,.05);
+--grey1: #111;
+--grey2: #555;
+--grey3: #999; */
+
+/* const grayDark = {
+  gray1: '#161616',
+  gray2: '#1c1c1c',
+  gray3: '#232323',
+  gray4: '#282828',
+  gray5: '#2e2e2e',
+  gray6: '#343434',
+  gray7: '#3e3e3e',
+  gray8: '#505050',
+  gray9: '#707070',
+  gray10: '#7e7e7e',
+  gray11: '#a0a0a0',
+  gray12: '#ededed',
+} */
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -74,9 +116,9 @@ a {
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
 
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 24 24 27;
-  --background-end-rgb: 0, 0, 0;
+  --foreground-rgb: 255, 255, 255;  #ffffff00
+  --background-start-rgb: 24 24 27; /// #18161b00
+  --background-end-rgb: 0, 0, 0;  /// #00000000
 
 
      --color-background: rgb(24 24 27);
@@ -97,8 +139,8 @@ a {
     #ffffff80
   );
 
-  --callout-rgb: 20, 20, 20;
-  --callout-border-rgb: 108, 108, 108;
-  --card-rgb: 100, 100, 100;
-  --card-border-rgb: 200, 200, 200;
+  --callout-rgb: 20, 20, 20; /// #14141400
+  --callout-border-rgb: 108, 108, 108; /// #6c6c6c00
+  --card-rgb: 100, 100, 100; /// #64646400
+  --card-border-rgb: 200, 200, 200;  #c8c8c800
   */

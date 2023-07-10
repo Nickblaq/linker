@@ -1,118 +1,81 @@
-import styles from './page.module.css'
-// import SlimBar from '@/components/sidebar/slim-bar'
+import * as React from 'react'
 
-// import HomePage from '@/components/page-home'
-// import PageHeader from '@/components/page-header'
-// import { MainNav } from '@/components/page-navbar'
-// import { NavItems } from '@/lib/items'
-import ButtonIcon from '@/components/custom/button-icon'
+import styles from './page.module.css'
+import Shield from '@/components/shied'
+import { MainNav } from '@/components/page-navbar'
+import { MobileNav } from '@/components/custom/button-icon'
+import SlimBar from '@/components/sidebar/slim-bar'
+import FatBar from '@/components/sidebar/fat-bar'
+import { Card, CardTitle, CardDescription, CardContent, CardHeader} from '@/components/ui/card'
+import { RecentUsers } from '@/components/resent-users'
+import ChartPie from '@/components/chart'
+import { LineChart } from '@/components/line-chart'
+import { Badge } from "@/components/ui/badge"
 export default async function Home () {
     // const items =  NavItems()
 
   return (
     <>
-     <div className="min-h-screen mx-auto px-2">
-     <div className="border border-[hsla(0,0%,100%,.1)] ">
-     <ul className="grid gap-3 p-4 list-none md:w-[400px] text-lg transition-transform duration-100">
+  <div className='flex h-full w-full'>
+    <FatBar />
+    <section className='relative min-h-full w-full bg-[rgba(255, 255, 255, 0.9)] overflow-y-autoflex-1 m-3 px-6 border'>
+      <div className='flex flex-col'>
+      <h1 className='font-extrabold text-7xl py-10 px-8'>Welcome, Henry</h1>
 
-<li className="row-span-3">
-<a
-          className="flex h-full w-full select-none flex-col justify-end rounded-md border border-[hsla(0,0%,100%,.1)] bg-gradient-to-b from-[#333]/50 to-[#333] p-6 no-underline outline-none focus:shadow-md"
-          href="/"
-        >
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+                <Card className="col-span-4">
+                  <CardHeader>
+                    <CardTitle>Assets overview</CardTitle>
+                    <CardDescription className='flex items-center gap-6 pt-6'>
 
-          <div className="mb-2 mt-4 text-lg font-medium text-[#bbb]">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground text-[#888]">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
+                      <div>
+                        <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(255,187,40)]'></span>
+                        <p className='text-base font-normal'>Current</p>
+                        </div>
+                      </div>
 
-<li className="row-span-3 text-[#bbb]">
-<a
-          className={
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}
-          href="/"
-        >
-          <div className="mb-2 mt-4 text-lg font-medium">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground text-[#888]">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
+                      <div>
+                      <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(0,196,159)]'></span>
+                        <p className='text-base font-normal'>Allocated</p>
+                        </div>
+                      </div>
 
-<li className="row-span-3">
-<a
-          className={
-            "hover:border border-[hsla(0,0%,100%,.1)] hover:bg-gradient-to-b from-[#333]/50 to-[#333] block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}
-          href="/"
-        >
-          <div className="mb-2 mt-4 text-lg font-medium">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
+                      <div>
+                      <h2 className='text-2xl font-sans font-bold'>$12,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(255,128,66)]'></span>
+                        <p className='text-base font-normal'>Interest</p>
+                        </div>
+                      </div>
 
-        <li className="row-span-3">
-<a
-          className={
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}
-          href="/"
-        >
-          <div className="mb-2 mt-4 text-lg font-medium">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
-
-        <li className="row-span-3 text-[#bbb]">
-<a
-          className={
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"}
-          href="/"
-        >
-          <div className="mb-2 mt-4 text-lg font-medium">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground text-[#888]">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
-
-        <li className="row-span-3">
-<a
-          className="flex h-full w-full select-none flex-col justify-end rounded-md border border-[hsla(0,0%,100%,.1)] bg-gradient-to-b from-[#333]/50 to-[#333] p-6 no-underline outline-none focus:shadow-md"
-          href="/"
-        >
-
-          <div className="mb-2 mt-4 text-lg font-medium text-[#bbb]">
-            shadcn/ui
-          </div>
-          <p className="text-sm leading-tight text-muted-foreground text-[#888]">
-            Beautifully designed components built with Radix UI and
-            Tailwind CSS.
-          </p>
-        </a>
-        </li>
-        </ul>
-</div>
-      <ButtonIcon />
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pl-2">
+                    <React.Suspense>
+                    <ChartPie />
+                    </React.Suspense>
+                  </CardContent>
+                </Card>
+                <Card className="col-span-3">
+                  <CardHeader>
+                    <CardTitle>Recent Sales</CardTitle>
+                    <CardDescription>
+                      You made 265 sales this month.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                  <React.Suspense>
+                    <LineChart />
+                    </React.Suspense>
+                  </CardContent>
+                </Card>
+              </div>
+      </div>
+    </section>
     </div>
     </>
   )

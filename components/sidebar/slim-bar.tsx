@@ -30,12 +30,12 @@ export default function SlimBar () {
 
   return (
     <>
-    <nav>
+    <nav className='h-full'>
 
     <TooltipProvider>
     <div 
     className={cn(
-      'relative min-h-full z-50 hidden md:flex items-center flex-col justify-between gap-8 h-[calc(100vh-64px)] w-[60px] py-16 border-r border-gray-200 px-8',
+      'relative min-h-full z-50 hidden md:flex items-center flex-col justify-between gap-8 h-screen w-[60px] py-16 border-r border-gray-200 px-8',
     )}>
   
       {/* <div>

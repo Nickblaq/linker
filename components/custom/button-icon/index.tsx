@@ -28,7 +28,7 @@ export default function ButtonIcon () {
     </Button>
       
     {showMobileMenu && (
-        <MobileNav />
+      <MobileNav />
       )}
         </>
     )
@@ -41,7 +41,7 @@ export function MobileNav({ items, children}: NavProps) {
     return (
       <div
       className={cn(
-        "fixed inset-0  top-16 z-30 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md animate-in slide-in-from-bottom-96",)}>
+        "fixed inset-0  top-16 z-10 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md animate-in slide-in-from-bottom-96",)}>
       
       <ul className="relative h-full z-20 rounded-[16px] bg-popover p-4 text-popover-foreground backdrop-blur-md border-[hsla(0,0%,100%,.1)] border  bg-gradient-to-b from-[#333]/50 to-[#333]">
         <div className='flex items-center justify-between px-2'>

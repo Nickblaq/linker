@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn(
-        'bg-gradient-to-b dark:from-[#222]/50 dark:to-[#222]  from-[#333]/50 to-[#333]',
+        ' min-h-screen bg-gradient-to-b text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]  from-[#fff]/50 to-[#fff]',
         inter.className
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
