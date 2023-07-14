@@ -7,7 +7,7 @@ import { MainNavItem } from '@/types'
 import { MobileNav } from '../page-navbar'
 import { useSelectedLayoutSegment } from 'next/navigation'
   interface NavProps {
-    items: MainNavItem[]
+    items?: MainNavItem[]
 }
 
 export default function ButtonNav ({ items }: NavProps) {
@@ -22,7 +22,7 @@ export default function ButtonNav ({ items }: NavProps) {
       <TextAlignLeftIcon className="h-6 w-6 flex items-center justify-center" />
     </Button>
       
-    {showMobileMenu && items && (
+    {showMobileMenu && (
         <MobileNav items={items} />
       )}
         </>

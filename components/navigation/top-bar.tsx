@@ -44,7 +44,7 @@ export function TopNav({ items, children }: NavProps) {
         </nav>
       
 
-        {showMobileMenu ? 
+        {/* {showMobileMenu ? 
           <>
           <Button
           size='icon'
@@ -61,17 +61,11 @@ export function TopNav({ items, children }: NavProps) {
            className='rounded-[50%] bg-[#333]   text-[#eee] relative flex items-center justify-center  border border-gray-200' variant="outline" size="icon">
         <HamburgerMenuIcon className="h-6 w-6 flex items-center justify-center" />
       </Button>
-          {/* <Button 
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
-          className='rounded-[50% ] h-full w-full bg-[#333 text-[#eee] flex items-center justify-center  border border-gray-200' variant="outline" size="icon">
-        <TextAlignLeftIcon className="flex items-center justify-center" />
-      </Button> */}
       </>
-      
         }
       {showMobileMenu  && (
         <MobileNav items={items}>{children}</MobileNav>
-      )}
+      )} */}
       </div>
     </div>
   )

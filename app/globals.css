@@ -30,8 +30,8 @@ body {
 }
 
 body {
-  color: var(--grey1);
-  background-color: var(--backgroundColor);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 a {
@@ -42,6 +42,11 @@ a {
   list-style: none;
  }
 
+ /* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+} */
 
 
 /* const gray = {
