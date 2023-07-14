@@ -76,7 +76,7 @@ export function MainNav({ items, children }: NavProps) {
       className="fixed inset-0  top-16 z-30 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md md:hidden animate-in slide-in-from-bottom-96"
       >
       
-      <div className="relative h-full bottom-0 z-20 rounded-xl bg-popover p-4 text-popover-foreground backdrop-blur-md border-gray-900 dark:border-gray-200 border-2 ">
+      <div className="relative h-full inset-x-0 inset-y-4 z-20 rounded-xl bg-popover p-4 text-popover-foreground backdrop-blur-md border-gray-900 dark:border-gray-200 border-2 ">
       <div className="flex items-center justify-between">
         <Link  href="/">
           <span className="font-bold">{siteConfig.name}</span>
