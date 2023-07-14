@@ -5,15 +5,16 @@ import Link from "next/link"
 import { SiteConfig, siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { useLockBody } from "@/hooks/use-lock-body"
-import { Icons } from "./icons"
+import { Icons } from "@/components/icons"
 import { MainNavItem } from "@/types"
 import { useSelectedLayoutSegment } from "next/navigation"
-import { NavigationMenuLink } from "./ui/navigation-menu"
+import { NavigationMenuLink } from "@/components/ui/navigation-menu"
 import { HamburgerMenuIcon, MaskOnIcon } from "@radix-ui/react-icons"
 import { Transition } from "@headlessui/react"
 import { TextAlignLeftIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
 import { Cross1Icon } from "@radix-ui/react-icons"
+import { ModeToggle } from "../mode-toggle"
 interface NavProps {
     items?: MainNavItem[]
     children?: React.ReactNode
@@ -21,17 +22,26 @@ interface NavProps {
 
 
 
-export function MainNav({ items, children }: NavProps) {
+export function TopNav({ items, children }: NavProps) {
   const segment = useSelectedLayoutSegment()
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-200  gap-6 md:gap-10 h-16 px-4">
+    <div className=" border-b border-gray-200">
+      <div className="flex items-center justify-between gap-6 md:gap-10 container h-16">
       <Link href="/" className="items-center space-x-2 md:flex">
         <p className=" font-black text-2xl font-serif sm:inline-block">
           {siteConfig.name}
         </p>
       </Link>
+
+      <nav className="hidden gap-6 md:flex">
+        <div className="flex transition-colors items-center rounded-md p-2 sm:text-sm text-lg font-medium hover:underline">Panel</div>
+            <div className="flex transition-colors items-center rounded-md p-2 sm:text-sm text-lg font-medium hover:underline">Panel</div>
+            <div className="flex transition-colors items-center rounded-md p-2 sm:text-sm text-lg font-medium hover:underline">Panel</div>
+            <div className="flex transition-colors items-center rounded-md p-2 sm:text-sm text-lg font-medium hover:underline">Panel</div>
+            <div className="flex transition-colors items-center rounded-md p-2 sm:text-sm text-lg font-medium hover:underline">Panel</div>
+        </nav>
       
 
         {showMobileMenu ? 
@@ -59,9 +69,10 @@ export function MainNav({ items, children }: NavProps) {
       </>
       
         }
-      {showMobileMenu && items && (
+      {showMobileMenu  && (
         <MobileNav items={items}>{children}</MobileNav>
       )}
+      </div>
     </div>
   )
 }
@@ -75,10 +86,14 @@ export function MainNav({ items, children }: NavProps) {
       className="fixed inset-0  top-16 z-30 grid h-[calc(100vh-4rem)] grid-flow-row overflow-auto p-6 shadow-md md:hidden animate-in slide-in-from-bottom-96"
       >
       
-      <div className="relative h-full z-20 rounded-md bg-popover p-4 text-popover-foreground backdrop-blur-md border-stone-950 border-2">
-        <Link href="/">
+      <div className="relative h-full z-20 rounded-xl  p-4 border-gray-700 dark:border-gray-200/50 border-2">
+        <div className="flex items-center justify-between">
+        <Link  href="/">
           <span className="font-bold">{siteConfig.name}</span>
         </Link>
+        <ModeToggle />
+        </div>
+       
         <ul className="grid gap-3 p-4 list-none md:w-[400px] text-lg transition-transform duration-100">
 
           <li className="row-span-3">

@@ -22,6 +22,7 @@ import {
      HamburgerMenuIcon,
      MoonIcon,
        } from '@radix-ui/react-icons'
+       import { ModeToggle } from '../mode-toggle'
        
 export default function SlimBar () {
   const [open, close] = React.useState(false)
@@ -35,7 +36,7 @@ export default function SlimBar () {
     <TooltipProvider>
     <div 
     className={cn(
-      'relative min-h-full z-50 hidden md:flex items-center flex-col justify-between gap-8 h-screen w-[60px] py-16 border-r border-gray-200 px-8',
+      'relative min-h-full z-50 hidden md:flex items-center flex-col justify-between gap-8 h-screen w-[60px] py-16 border-r border-gray-700 px-8',
     )}>
   
       {/* <div>
@@ -112,10 +113,10 @@ export default function SlimBar () {
           </div>
           <div className='flex flex-col items-center justify-center gap-8'>
   
-          <Tooltip>
-         <TooltipTrigger>
-         <Label> <MoonIcon className='h-6 w-6' /> </Label>
-          </TooltipTrigger>
+          {/* <Tooltip>
+         <TooltipTrigger> */}
+         <ModeToggle />
+          {/* </TooltipTrigger>
           <TooltipContent 
            align="start"
            className="bg-[#111] rounded-[10px] ml-[2px] py-[6px] px-[10px] "
@@ -124,7 +125,7 @@ export default function SlimBar () {
             <p className='font-bold text-xs text-[#eee] leading-5 tracking-widest'>Mode</p>
         
           </TooltipContent>
-          </Tooltip>
+          </Tooltip> */}
 
 
           

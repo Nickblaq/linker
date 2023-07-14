@@ -61,19 +61,6 @@ export default function ChartPie() {
       </PieChart>
       
     </ResponsiveContainer>
-    <div className='flex justify-center text-center w-full mx-auto'>
-    {data.map((entry, index) => (
-    <div key={`cell-${index}`} 
-    className='space-y-2'
-    // className={`bg-[${COLORSArray[index % COLORSArray.length]}]`}
-    >
-      <span className={`h-4 w-4 border px-6`}>{entry.total}
-      </span>
-      <p className={`text-sm font-normal`}>{entry.name}</p>
-    </div>
-  ))}
-    </div>
-   
     </>
   )
 }

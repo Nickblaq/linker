@@ -1,0 +1,99 @@
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7 mx-auto w-full">
+                <div className="lg:col-span-4 col-span-1">
+                  <div>
+                    <div>Assets overview</div>
+                    <div className='flex items-center gap-6 pt-6'>
+
+                      <div>
+                        <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(255,187,40)]'></span>
+                        <p className='text-base font-normal'>Current</p>
+                        </div>
+                      </div>
+
+                      <div>
+                      <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(0,196,159)]'></span>
+                        <p className='text-base font-normal'>Allocated</p>
+                        </div>
+                      </div>
+
+                      <div>
+                      <h2 className='text-2xl font-sans font-bold'>$12,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(255,128,66)]'></span>
+                        <p className='text-base font-normal'>Interest</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div className="pl-2">
+                    <React.Suspense>
+                    <ChartPie />
+                    </React.Suspense>
+                  </div>
+                </div>
+                <div className="lg:col-span-3 col-span-1">
+                  <div>
+                    <div>Recent Sales</div>
+                    <div>
+                      You made 265 sales this month.
+                    </div>
+                  </div>
+                  <div>
+                  <React.Suspense>
+                    <LineChart />
+                    </React.Suspense>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+///// another section//// 
+
+
+              <section className='flex-1 min-h-full w-full bg-[rgba(255, 255, 255, 0.9) border '>
+      <div className='flex flex-col'>
+      <h1 className='font-extrabold text-2xl lg:text-7xl py-10 px-8'>Hey, Henry!</h1>
+
+      <div className="md:grid  grid-flow-row gap-2 md:grid-cols-2 lg:grid-cols-7 bg-slate-200/50">
+        <div className=' px-6'>
+        <div className=' flex flex-col items-center mx-auto'>
+                    <h2 className='text-left inline-block w-full pl-6'>Assets overview</h2>
+                    <div className='flex items-center gap-6 pt-6'>
+
+                      <div>
+                        <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(255,187,40)]'></span>
+                        <p className='text-base font-normal'>current assets</p>
+                        </div>
+                      </div>
+                      <div>
+                        <h2 className='text-2xl font-sans font-bold'>$111,111,000</h2>
+                        <div className='flex items-center gap-1'>
+                        <span className=' rounded-[50%] h-3 w-3 bg-[rgb(0,196,159)]'></span>
+                        <p className='text-base font-normal'>allocated assets</p>
+                        </div>
+                      </div>
+                       </div>
+                      <ChartPie />
+        </div>
+
+        <div className=''>
+          <RecentUsers />
+        </div>
+        </div>
+       
+
+        
+      </div>
+      </div>
+    </section>

@@ -30,7 +30,7 @@ export default function FatBar () {
 
   return (
     <>
-    <nav className='h-full'>
+    <nav className='h-full hidden lg:block'>
     <div 
     className='relative min-h-full z-50 w-48 hidden md:flex  flex-col justify-between gap-8 h-screen py-16 border-r border-gray-700 dark:border-gray-200 px-8'>
         {/* Header */}

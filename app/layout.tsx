@@ -2,7 +2,6 @@ import './globals.css'
 // import '@/styles/global.css'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/providers'
-import Navbar from '@/components/navbar/navbar'
 import { Metadata } from "next"
 const inter = Inter({ subsets: ['latin'] })
 import { cn } from '@/lib/utils'
@@ -28,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn(
-        ' min-h-screen bg-gradient-to-b text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]  from-[#fff]/50 to-[#fff]',
+        ' min-h-screen bg-gradient-to-b from-[#fff]/90 to-[#fff] text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]',
         inter.className
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
