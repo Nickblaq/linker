@@ -6,7 +6,7 @@ import { Shell } from '@/components/shell'
 import { HeaderColHeader } from '@/components/header-col'
 import DashboardFirst from '@/components/layout/dashboard/dash-first'
 import { SesFirst } from '@/components/layout/dashboard/ses-first'
-
+import ButtonNav from '@/components/ui/button-nav'
 export default async function Home () {
 
   return (
@@ -21,7 +21,7 @@ export default async function Home () {
           </HeaderColHeader>
         </Shell>
       </DashboardFirst>
-     
+     <ButtonNav />
       </div>
     </>
   )

@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/providers'
 import { Metadata } from "next"
 const inter = Inter({ subsets: ['latin'] })
 import { cn } from '@/lib/utils'
-import ButtonNav from '@/components/ui/button-nav'
+import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         {children}
-      <ButtonNav />
+        <SiteFooter />
         </ThemeProvider>
         </body>
     </html>
