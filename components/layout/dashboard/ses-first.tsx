@@ -7,6 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Icons } from '@/components/icons';
 import  ChartPie  from '@/components/chart';
 import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { signIn, signOut } from 'next-auth/react';
 const MotionDiv = motion.div
 
 const variants = {
@@ -92,6 +95,32 @@ export function SesFirst() {
         </p>
         </div>
         </section>
+
+        <div className="flex gap-4 pt-6">
+        <Link 
+        className={buttonVariants({ variant: "link" })}
+        href="/register" 
+        >Register</Link>
+      
+        <Button
+        onClick={() => signIn()}
+          className={buttonVariants()}
+        >
+          Sign In
+        </Button>
+        <Button
+        onClick={() => signOut()}
+         className={buttonVariants()}>
+          Sign out
+        </Button>
+
+
+        <Link
+          href="/profile"
+          className={buttonVariants({ variant: "outline" })}>
+          Profile
+        </Link>
+      </div>
               </>
     )
   }

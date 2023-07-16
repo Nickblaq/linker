@@ -6,6 +6,7 @@ import { Metadata } from "next"
 const inter = Inter({ subsets: ['latin'] })
 import { cn } from '@/lib/utils'
 import { SiteFooter } from '@/components/site-footer'
+// import { NextAuthProvider } from './providers'
 
 export const metadata: Metadata = {
   title: {
@@ -32,7 +33,8 @@ export default function RootLayout({ children }) {
         inter.className
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        {children}
+     {children}
+        
         <SiteFooter />
         </ThemeProvider>
         </body>

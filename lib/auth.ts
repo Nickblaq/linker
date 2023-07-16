@@ -1,17 +1,24 @@
-import { prisma } from "./prisma";
+import { db } from "./prisma";
+import { PrismaAdapter } from "@next-auth/prisma-adapter"
+import { AuthOptions } from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import EmailProvider from "next-auth/providers/email"
+import { compare } from "bcryptjs";
+import jwt from "jsonwebtoken"
 export const authOptions: NextAuthOptions = {
-    pages: {
-        signIn: "/login",
-      },
-    session: {
-        strategy: "jwt"
-    },
+   // @see https://github.com/prisma/prisma/issues/16117
+   adapter: PrismaAdapter(db as any),
+   secret: process.env.NEXTAUTH_SECRET,
+   session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: '/login',
+  },
     providers: [
         CredentialsProvider({
-            name: 'Sign in',
+            name: 'Credentials',
             credentials: {
                 email: {
                     label: 'Email',
@@ -25,7 +32,7 @@ export const authOptions: NextAuthOptions = {
                 return null
                }
 
-               const user = await prisma.user.findUnique({
+               const user = await db.user.findUnique({
                 where: {
                   email: credentials.email,
                 },
@@ -39,33 +46,42 @@ export const authOptions: NextAuthOptions = {
                 id: user.id,
                 email: user.email,
                 name: user.name,
-                randomKey: "Hey cool",
               };
             },
         }),
     ],
 
-    callbacks: { 
-        session: ({ session, token }) => {
-            return {
-              ...session,
-              user: {
-                ...session.user,
-                id: token.id,
-                randomKey: token.randomKey,
-              },
-            };
+    callbacks: {
+      async session({ token, session }) {
+        if (token) {
+          session.user.id = token.id
+          session.user.name = token.name
+          session.user.email = token.email
+          session.user.image = token.picture
+        }
+  
+        return session
+      },
+      async jwt({ token, user }) {
+        const dbUser = await db.user.findFirst({
+          where: {
+            email: token.email,
           },
-          jwt: ({ token, user }) => {
-            if (user) {
-              const u = user as unknown as any;
-              return {
-                ...token,
-                id: u.id,
-                randomKey: u.randomKey,
-              };
-            }
-            return token;
-          },
+        })
+  
+        if (!dbUser) {
+          if (user) {
+            token.id = user?.id
+          }
+          return token
+        }
+  
+        return {
+          id: dbUser.id,
+          name: dbUser.name,
+          email: dbUser.email,
+          picture: dbUser.image,
+        }
+      },
     },
 };
