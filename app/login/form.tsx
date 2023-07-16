@@ -6,6 +6,9 @@ import { signIn } from "next-auth/react"
 import { ChangeEvent, useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Icons } from "@/components/icons";
 export const LoginForm = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(false)
@@ -61,50 +64,78 @@ export const LoginForm = () => {
                 <p className="text-center bg-red-300 py-4 mb-6 rounded">{error}</p>
             )}
 
-            <div className="mb-6">
-                <input
+{/* <div className="grid gap-2">
+          <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              placeholder="name@example.com"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+              disabled={isLoading}
+              {...register("email")}
+            />
+            {errors?.email && (
+              <p className="px-1 text-xs text-red-600">{errors.email.message}</p>
+            )}
+          </div>
+          <button disabled={isLoading}>
+            {isLoading ? <Icons.spinner className="mr-2 h-4 w-4 animate-spin" /> : null}
+            Sign In with Email
+          </button>
+        </div> */}
+        <div className="grid gap-2">
+            <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="email">Email</Label>
+                <Input
                 required
                 type="email"
                 name="email"
                 value={formValues.email}
                 onChange={handleChange}
                 placeholder="Email address"
-                className={`${input_style}`}
+                // className={`${input_style}`}
                  />
             </div>
-            <div className="mb-6">
-                <input
+            <div className="grid gap-1">
+            <Label className="sr-only" htmlFor="password">Password</Label>
+                <Input
                 required
                 type="password"
                 name="password"
                 value={formValues.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className={`${input_style}`}
+                // className={`${input_style}`}
                  />
             </div>
-            <button
+            <Button
             type="submit"
-            className={cn('inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full',
-            loading ? 'bg-[#ccc]' : 'bg-[#3446eb]' 
-            )}
+            variant="outline"
             disabled={loading}
             >
-            { loading ? 'loading...' : 'Sign In'}
-             </button>
-
-             <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-             <p className="text-center font-semibold mx-4 mb-0">OR</p>
-             </div>
-
-             <div
-            className={cn('inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full',
-            loading ? 'bg-[#ccc]' : 'bg-[#3446eb]' 
-            )}
-            >
-           Google
+             {loading ? <Icons.spinner className="mr-2 h-4 w-4 animate-spin" /> : null}
+            {/* { loading ? 'loading...' : 'Sign In'} */}
+             </Button>
              </div>
         </form>
+        <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t" />
+        </div>
+        <div className="relative flex justify-center text-xs uppercase">
+          <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+        </div>
+      </div>
+      <Button variant="outline" type="button" disabled={loading}>
+        {loading ? (
+          <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+        ) : (
+          <Icons.gitHub className="mr-2 h-4 w-4" />
+        )} Github
+      </Button>
         </>
     )
 }

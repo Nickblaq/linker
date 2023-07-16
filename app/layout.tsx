@@ -6,6 +6,7 @@ import { Metadata } from "next"
 const inter = Inter({ subsets: ['latin'] })
 import { cn } from '@/lib/utils'
 import { SiteFooter } from '@/components/site-footer'
+import { TopNav } from '@/components/navigation/top-bar'
 // import { NextAuthProvider } from './providers'
 
 export const metadata: Metadata = {
@@ -29,13 +30,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn(
-        ' bg-gradient-to-b from-[#fff]/90 to-[#fff] text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]',
+        ' bg-gradient-to-b min-h-screen flex flex-col w-full from-[#fff]/90 to-[#fff] text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]',
         inter.className
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {/* <TopNav /> */}
+        <main className='flex-1'>
      {children}
+     </main>
         
-        <SiteFooter />
+        {/* <SiteFooter /> */}
         </ThemeProvider>
         </body>
     </html>
