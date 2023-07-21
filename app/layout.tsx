@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cn(
-        ' bg-gradient-to-b min-h-screen flex flex-col w-full from-[#fff]/90 to-[#fff] text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]',
+        ' bg-gradient-to-b min-h-screen w-full from-[#fff]/90 to-[#fff] text-gray-700 dark:text-gray-200 dark:from-[#222]/50 dark:to-[#222]',
         inter.className
       )}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
